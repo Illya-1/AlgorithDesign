@@ -1,0 +1,6 @@
+﻿{
+  "configProperties": {
+    "System.Runtime.TieredCompilation": false,
+    "System.GC.HeapHardLimit": 314572800
+  }
+}
