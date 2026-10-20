@@ -17,7 +17,7 @@ static class Program
             long totalMemMb = GC.GetTotalMemory(false) / (1024 * 1024);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"Managed Heap before crash: {totalMemMb} MB / 300 MB limit");
-            Console.WriteLine(ex.ToString()); // Покажет файл и номер строки, где запросили память!
+            Console.WriteLine(ex.ToString());
             Console.ResetColor();
             throw;
         }
@@ -31,22 +31,22 @@ static class Program
 
         Func<IAlgorithm>[] factories =
         [
-            // () => new NaturalMergeSort<FileRecord>(4 * (int)Units.MB),
+            () => new NaturalMergeSort<FileRecord>(4 * (int)Units.MB),
             // () => new ModifiedNaturalMergeSort<FileRecord>(50 * (int)Units.MB, 4 * (int)Units.MB),
             // () => new ChatGptLsd(),
             // () => new GeminiAlgorithm(),
-            () => new GrkoAlgorithm()
+            // () => new GrkoAlgorithm()
         ];
 
         long[] testSizes =
         [
-            10 * Units.MB,
-            100 * Units.MB,
-            250 * Units.MB,
-            500 * Units.MB,
+            // 10 * Units.MB,
+            // 100 * Units.MB,
+            // 250 * Units.MB,
+            // 500 * Units.MB,
             1 * Units.GB,
-            2 * Units.GB,
-            4 * Units.GB
+            // 2 * Units.GB,
+            // 4 * Units.GB
         ];
 
         BenchmarkRunner.RunAndExportHtml(factories, testSizes, outputHtmlPath);
